@@ -291,8 +291,9 @@ document.addEventListener("DOMContentLoaded", () => {
 																						for (let i = 0; i < data.length; i++) {
                                                                                             let val = data[i];
                                                                                             var add = example
+																							console.log(val);
                                                                                             add = add.replaceAll("{repo name}",val["full_name"])
-                                                                                            add = add.replaceAll("{description}",val["description"])
+                                                                                            add = add.replaceAll("{description}",val["description"] || "No description.")
                                                                                             add = add.replaceAll("{star_count}",val["stargazers_count"])
 											    add = add.replaceAll("{url}",val["html_url"])
                                                                                             add = add.replaceAll("{language}",val["language"] || "None")
