@@ -263,27 +263,27 @@
             var ip
             fetch("https://api.fuchsiax.dev/getip").then((r) => r.text()).then(data => {
               ip = data
-              instAnim(" < span style = \"color: rgba(50,255,50,255);\">" + ip + "@" + location.hostname + " ~ $</span>", true)
+              instAnim("<span style=\"color: rgba(50,255,50,255);\">" + ip + "@" + location.hostname + " ~ $</span>", true)
             });
             setTimeout(() => {
                 fetch("https://api.fuchsiax.dev/getip").then((r) => r.text()).then(data => {
                     ip = data
-                    instAnim(" < span style = \"color: rgba(50,255,50,255);\">" + ip + "@" + location.hostname + " ~ $</span> ", true)
+                    instAnim("<span style=\"color: rgba(50,255,50,255);\">" + ip + "@" + location.hostname + " ~ $</span> ", true)
                     setTimeout(() => {
                         wait = animate("Hello " + data + "! ")
                         setTimeout(() => {
                             fetch("https://api.fuchsiax.dev/getcountry").then((r) => r.json()).then(data => {
-                                instAnim(" < br > < span style = \"color: rgba(50,255,50,255);\">" + ip + "@" + location.hostname + " ~ $</span> ", false)
+                                instAnim(" <br><span style=\"color: rgba(50,255,50,255);\">" + ip + "@" + location.hostname + " ~ $</span> ", false)
                                 wait = animate("Looks like we have someone from " + data["country_name"] + ", that's cool!")
                                 setTimeout(() => {
-                                    instAnim(" < br > < span style = \"color: rgba(50,255,50,255);\">" + ip + "@" + location.hostname + " ~ $</span> ", false)
+                                    instAnim(" <br> <span style=\"color: rgba(50,255,50,255);\">" + ip + "@" + location.hostname + " ~ $</span> ", false)
                                     setTimeout(() => {
                                         animate("Let me introduce you to my website.", false)
                                         setTimeout(() => {
-                                            instAnim(" < br > < span style = \"color: rgba(50,255,50,255);\">" + ip + "@" + location.hostname + " ~ $</span> ", false)
+                                            instAnim(" <br><span style=\"color: rgba(50,255,50,255);\">" + ip + "@" + location.hostname + " ~ $</span> ", false)
                                             animate("./latealways", false)
                                             setTimeout(() => {
-                                                instAnim(" < br > ")
+                                                instAnim(" <br> ")
                                                   setTimeout(() => {
                                                     document.getElementById("term").style.setProperty("opacity", "0")
                                                     document.getElementById("page").style.setProperty("opacity", "1")
@@ -295,17 +295,17 @@
                                                         setTimeout(() => {
                                                           document.getElementById("animateText").style.setProperty("opacity", "0")
                                                           setTimeout(() => {
-                                                            document.getElementById("animateText").innerHTML = "I like reverse-engineering software but also making it."
+                                                            document.getElementById("animateText").innerText = "I like reverse-engineering software but also making it."
                                                             document.getElementById("animateText").style.setProperty("opacity", "1")
                                                             setTimeout(() => {
                                                               document.getElementById("animateText").style.setProperty("opacity", "0")
                                                               setTimeout(() => {
-                                                                document.getElementById("animateText").innerHTML = "I usually code in Python but I also use other programming languages.";
+                                                                document.getElementById("animateText").innerText = "I usually code in Python but I also use other programming languages.";
                                                                 document.getElementById("animateText").style.setProperty("opacity", "1")
                                                                 setTimeout(() => {
                                                                   document.getElementById("animateText").style.setProperty("opacity", "0")
                                                                   setTimeout(() => {
-                                                                    document.getElementById("animateText").innerHTML = "Welcome!";
+                                                                    document.getElementById("animateText").innerHTML = "That's all for now.";
                                                                     fetch("https://api.github.com/users/latealways/repos").then(resp => resp.json()).then(data => {
                                                                       var example = document.getElementById("template").innerHTML;
                                                                       for (let i = 0; i < data.length; i++) {
@@ -337,7 +337,7 @@
                                                     }, 2000)
                                                   }, 2500)
                                                 }, getTimeLength("./latealways"))
-                                            }, getTimeLength("Anyways, welcome to my website!") + 500)
+                                            }, getTimeLength("Let me introduce you to my website.") + 500)
                                         }, 500)
                                     }, wait + 1500)
                                 })
