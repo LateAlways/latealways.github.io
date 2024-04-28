@@ -336,7 +336,7 @@
                 AppLogger.log('successfully loaded settings from chrome sync');
                 AppLogger.log('sync items=' + JSON.stringify(items));
                 AppLogger.log('settings=' + JSON.stringify(settings));
-                //$scope.$apply();
+                $scope.$apply();
                 settingsLoaded = true;
             }
         });
