@@ -215,6 +215,7 @@
       </div>
     </div>
     <script>
+
       var animating = false;
       let animateQueue = [];
       const speed = 60
@@ -311,6 +312,7 @@
                                                                       for (let i = 0; i < data.length; i++) {
                                                                         let val = data[i];
                                                                         var add = example
+									      console.log(val);
 									      if(val["disabled"] === true) continue;
                                                                         add = add.replaceAll("{repo name}", val["full_name"])
                                                                         add = add.replaceAll("{description}", val["description"] || "No description.")
