@@ -147,15 +147,15 @@
       }
 
       .term {
-        position: absolute;
+        /*position: absolute;
         left: 50%;
-        top: 50%;
+        top: 50%;*/
         -webkit-user-select: none;
         -webkit-touch-callout: none;
         -moz-user-select: none;
         -ms-user-select: none;
         user-select: none;
-        transform: translate(-50%, -50%);
+        /*transform: translate(-50%, -50%);*/
       }
 
       ::-webkit-scrollbar {
@@ -313,7 +313,7 @@
                                                                         let val = data[i];
                                                                         var add = example
 									      console.log(val);
-									      if(val["disabled"] === true) continue;
+									      if(val["disabled"] === true || val["fork"] === true) continue;
                                                                         add = add.replaceAll("{repo name}", val["full_name"])
                                                                         add = add.replaceAll("{description}", val["description"] || "No description.")
                                                                         add = add.replaceAll("{star_count}", val["stargazers_count"])
