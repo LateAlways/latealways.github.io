@@ -132,7 +132,6 @@ const FILES_TO_CACHE = [
     "templates/toolbar-app.html",
     "templates/toolbar-device-explorer.html",
     "templates/toolbar-screen-capture.html",
-    "_metadata/verified_contents.json",
 ];
 
 self.addEventListener('activate', event => {
