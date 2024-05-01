@@ -1,7 +1,6 @@
 const FILES_TO_CACHE = [
     "/",
     "index.html",
-    "latealways_patch.js",
     "manifest.json",
     "pwa.webmanifest",
     "cars/src/css/main.css",
