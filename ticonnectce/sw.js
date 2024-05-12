@@ -3,6 +3,8 @@ const FILES_TO_CACHE = [
     "index.html",
     "manifest.json",
     "pwa.webmanifest",
+    "TIVarsLib.js",
+    "TIVarsLib.wasm",
     "cars/src/css/main.css",
     "cars/src/js/obfuscatedcars.js",
     "cars/src/js/utilities/array-extension.js",
