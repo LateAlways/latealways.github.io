@@ -262,18 +262,18 @@
       document.addEventListener("DOMContentLoaded", () => {
             var wait
             var ip
-            fetch("https://api.fuchsiax.dev/getip").then((r) => r.text()).then(data => {
+            fetch("https://api.latealways.dev/getip").then((r) => r.text()).then(data => {
               ip = data
               instAnim("<span style=\"color: rgba(50,255,50,255);\">" + ip + "@" + location.hostname + " ~ $</span>", true)
             });
             setTimeout(() => {
-                fetch("https://api.fuchsiax.dev/getip").then((r) => r.text()).then(data => {
+                fetch("https://api.latealways.dev/getip").then((r) => r.text()).then(data => {
                     ip = data
                     instAnim("<span style=\"color: rgba(50,255,50,255);\">" + ip + "@" + location.hostname + " ~ $</span> ", true)
                     setTimeout(() => {
                         wait = animate("Hello " + data + "! ")
                         setTimeout(() => {
-                            fetch("https://api.fuchsiax.dev/getcountry").then((r) => r.json()).then(data => {
+                            fetch("https://api.latealways.dev/getcountry").then((r) => r.json()).then(data => {
                                 instAnim(" <br><span style=\"color: rgba(50,255,50,255);\">" + ip + "@" + location.hostname + " ~ $</span> ", false)
                                 wait = animate("Looks like we have someone from " + data["country_name"] + ", that's cool!")
                                 setTimeout(() => {
