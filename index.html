@@ -7,7 +7,7 @@
   <link rel="icon" href="pfp.png">
   <meta property="og:title" content="LateAlways">
   <meta property="og:description" content="Developer. I reverse-engineer software and build it too.">
-  <meta property="og:image" content="https://latealways.is-a.dev/pfp.png">
+  <meta property="og:image" content="https://latealways.dev/pfp.png">
   <meta name="theme-color" content="#00ff80">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -487,6 +487,10 @@
       const r = card.getBoundingClientRect();
       card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
       card.style.setProperty('--my', (e.clientY - r.top) + 'px');
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.setProperty('--mx', '-999px');
+      card.style.setProperty('--my', '-999px');
     });
   }
 
