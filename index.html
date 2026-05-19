@@ -28,33 +28,18 @@
       display: flex;
       flex-wrap: wrap;
       margin-right: 20px;
-      animation: fadeInAnimation ease 1.5s;
-      animation-iteration-count: 1;
-      animation-fill-mode: forwards;
-      animation-duration: 0.8s;
+      animation: fadeInAnimation ease 0.8s both;
     }
 
     .material-symbols-outlined {
-      -webkit-user-select: none;
-      -webkit-touch-callout: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
       user-select: none;
       text-decoration: none;
       font-size: 25px;
       vertical-align: text-bottom;
-      font-variation-settings:
-        'FILL' 0,
-        'wght' 400,
-        'GRAD' 0,
-        'opsz' 48
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
     }
 
     a {
-      -webkit-user-select: none;
-      -webkit-touch-callout: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
       user-select: none;
       text-decoration: none;
       color: white;
@@ -62,7 +47,6 @@
 
     a:hover {
       text-decoration: underline;
-      color: white;
     }
 
     .widget {
@@ -76,13 +60,9 @@
     }
 
     #page {
-      -webkit-user-select: none;
-      -webkit-touch-callout: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
       user-select: none;
       opacity: 0;
-      transition: 0.1s;
+      transition: opacity 0.1s;
       font-family: 'Montserrat', sans-serif;
       position: absolute;
       left: 50%;
@@ -92,49 +72,7 @@
     }
 
     #animateText {
-      transition: 0.1s
-    }
-
-    #terminal__prompt--cursor {
-      display: block;
-      height: 17px;
-      width: 8px;
-      margin-left: 9px;
-      animation: blink 1200ms linear infinite;
-      position: absolute;
-      bottom: 100%;
-    }
-
-    @keyframes blink {
-      0% {
-        opacity: 1;
-      }
-
-      49% {
-        opacity: 1;
-      }
-
-      50% {
-        opacity: 0;
-      }
-
-      99% {
-        opacity: 0;
-      }
-
-      100% {
-        opacity: 0;
-      }
-    }
-
-    @keyframes fadeInAnimation {
-      0% {
-        opacity: 0;
-      }
-
-      100% {
-        opacity: 1;
-      }
+      transition: opacity 0.1s;
     }
 
     #terminal {
@@ -150,36 +88,34 @@
     }
 
     .term {
-      /*position: absolute;
-        left: 50%;
-        top: 50%;*/
-      -webkit-user-select: none;
-      -webkit-touch-callout: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
       user-select: none;
-      /*transform: translate(-50%, -50%);*/
     }
 
-    ::-webkit-scrollbar {
-      width: 10px;
+    .repo-card {
+      background-color: rgba(20, 20, 20, 255);
+      padding: 35px;
+      width: 40%;
+      max-width: 100%;
+      cursor: pointer;
     }
 
-    /* Track */
-    ::-webkit-scrollbar-track {
-      box-shadow: inset 0 0 5px grey;
-      border-radius: 5px;
+    .repo-card:hover {
+      background-color: rgba(35, 35, 35, 255);
     }
 
-    /* Handle */
-    ::-webkit-scrollbar-thumb {
-      background: rgb(190, 190, 190);
-      border-radius: 5px;
+    ::-webkit-scrollbar { width: 10px; }
+    ::-webkit-scrollbar-track { box-shadow: inset 0 0 5px grey; border-radius: 5px; }
+    ::-webkit-scrollbar-thumb { background: rgb(190, 190, 190); border-radius: 5px; }
+    ::-webkit-scrollbar-thumb:hover { background: #000; }
+
+    @keyframes blink {
+      0%, 49% { opacity: 1; }
+      50%, 100% { opacity: 0; }
     }
 
-    /* Handle on hover */
-    ::-webkit-scrollbar-thumb:hover {
-      background: #000000;
+    @keyframes fadeInAnimation {
+      from { opacity: 0; }
+      to   { opacity: 1; }
     }
   </style>
 </head>
@@ -194,170 +130,159 @@
   <div id="main" style="display: none !important;">
     <div class="widget" style="padding-left: 35px;">
       <h3>
-        <img style="border-radius: 50%;vertical-align: middle;" alt="profile picture" src="pfp.png" width="100"
-          height="100">
+        <img style="border-radius: 50%; vertical-align: middle;" alt="profile picture" src="pfp.png" width="100" height="100">
         <span style="padding-left: 20px;">
           <a href="https://github.com/latealways">LateAlways</a>
-          <br>
-          <br>
-          <span style="color: rgba(150,150,150,255);">eeny, meeny, miny, moe</span> | Discord: LateAlways | <a
-            href="https://github.com/latealways">GitHub</a>
+          <br><br>
+          <span style="color: rgba(150,150,150,255);">eeny, meeny, miny, moe</span> | Discord: LateAlways | <a href="https://github.com/latealways">GitHub</a>
+        </span>
       </h3>
     </div>
-    <div class="widget" style=" max-width: 100%; width: 100%; height:100%;">
-      <h3 style="margin-left: 15px;line-height: 1px;">My projects: </h3>
-      <div id="repos" style="display:flex;flex-wrap: wrap;"></div>
-      <div id="template" hidden>
-        <div class="widget" onclick="{url}"
-          style="background-color: rgba(20,20,20,255);padding: 35px; width:40%;max-width: 100%;">
-          <h4>
-            <a href="{url}">{repo name}</a>
-          </h4>
-          <p>{description}</p>
-          <h4 style="color: rgba(120,120,120,255)">{language} | <span style="color:white;">
-              <span class="material-symbols-outlined">star</span>: {star_count} </span>
-          </h4>
-        </div>
-      </div>
+    <div class="widget" style="max-width: 100%; width: 100%;">
+      <h3 style="margin-left: 15px; line-height: 1px;">My projects:</h3>
+      <div id="repos" style="display: flex; flex-wrap: wrap;"></div>
     </div>
   </div>
+
   <script>
+    // ── Helpers ──────────────────────────────────────────────────────────────
 
-    var animating = false;
-    let animateQueue = [];
-    const speed = 60
+    const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
-    function getTimeLength(text) {
-      return text.length * speed
+    const termEl      = document.getElementById("terminal");
+    const pageEl      = document.getElementById("page");
+    const animTextEl  = document.getElementById("animateText");
+    const termWrap    = document.getElementById("term");
+    const mainEl      = document.getElementById("main");
+
+    const SPEED = 60; // ms per character
+
+    function setTermPrompt(ip) {
+      return `<span style="color:rgba(50,255,50,255);">${ip}@${location.hostname} ~ $</span>`;
     }
 
-    function animate(text, reset) {
-      if (animating == false) {
-        animating = true;
-        if (reset) {
-          document.getElementById("terminal").innerHTML = "";
-        }
+    // Types text one character at a time; resolves when done.
+    function typeText(text) {
+      return new Promise(resolve => {
         for (let i = 0; i < text.length; i++) {
-          setTimeout(() => {
-            document.getElementById("terminal").innerHTML += text.substring(i, i + 1);
-          }, i * speed);
+          setTimeout(() => { termEl.innerHTML += text[i]; }, i * SPEED);
         }
-        setTimeout(() => {
-          animating = false;
-          for (var i = 0; i < animateQueue.length; i++) {
-            var t = animateQueue[i]["tex"]
-            var r = animateQueue[i]["res"]
-            animate(t, r)
-          }
-          animateQueue = []
-        }, text.length * speed);
-        return text.length * speed
-      } else {
-        animateQueue.push({
-          tex: text,
-          res: reset
-        });
+        setTimeout(resolve, text.length * SPEED);
+      });
+    }
+
+    // Instantly appends HTML (no typing animation).
+    function append(html) {
+      termEl.innerHTML += html;
+    }
+
+    // Fades #animateText out, swaps content, fades back in.
+    async function swapText(html, displayMs = 2000) {
+      animTextEl.style.opacity = "0";
+      await sleep(130);
+      animTextEl.innerHTML = html;
+      animTextEl.style.opacity = "1";
+      await sleep(displayMs);
+    }
+
+    // ── Repos ────────────────────────────────────────────────────────────────
+
+    async function loadRepos() {
+      try {
+        const resp = await fetch("https://api.github.com/users/latealways/repos?per_page=100");
+        const data = await resp.json();
+
+        // Sort by most recently pushed, skip forks & disabled
+        const repos = data
+          .filter(r => !r.disabled && !r.fork)
+          .sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at));
+
+        const container = document.getElementById("repos");
+
+        for (const repo of repos) {
+          const card = document.createElement("div");
+          card.className = "widget repo-card";
+          card.onclick = () => window.open(repo.homepage || repo.html_url, "_blank");
+          card.innerHTML = `
+            <h4><a href="${repo.homepage || repo.html_url}">${repo.full_name}</a></h4>
+            <p>${repo.description || "No description."}</p>
+            <h4 style="color:rgba(120,120,120,255);">
+              ${repo.language || "None"} |
+              <span style="color:white;">
+                <span class="material-symbols-outlined">star</span>: ${repo.stargazers_count}
+              </span>
+            </h4>`;
+          container.appendChild(card);
+        }
+      } catch (e) {
+        console.error("Failed to load repos:", e);
       }
     }
 
-    function instAnim(text, reset) {
-      if (reset) {
-        document.getElementById("terminal").innerHTML = "";
-      }
-      document.getElementById("terminal").innerHTML += text;
+    // ── Intro sequence ───────────────────────────────────────────────────────
+
+    async function runIntro() {
+      let ip = "visitor";
+      let country = "";
+
+      try {
+        ip = await fetch("https://api.latealways.dev/getip").then(r => r.text());
+      } catch (_) {}
+
+      const prompt = () => setTermPrompt(ip);
+
+      // Line 1: greeting
+      append(prompt() + " ");
+      await typeText(`Hello ${ip}! `);
+      await sleep(750);
+
+      // Line 2: country
+      try {
+        const geo = await fetch("https://api.latealways.dev/getcountry").then(r => r.json());
+        country = geo.country_name;
+      } catch (_) {}
+
+      append(`<br>${prompt()} `);
+      await typeText(`Looks like we have someone from ${country || "somewhere"}`);
+      await typeText(", that's cool!");
+      await sleep(750);
+
+      // Line 3: intro
+      append(`<br>${prompt()} `);
+      await typeText("Let me introduce you to my website.");
+      await sleep(500);
+
+      // Line 4: run command
+      append(`<br>${prompt()} `);
+      await typeText("./latealways");
+      append("<br> ");
+      await sleep(2500);
+
+      // Switch to animated text panel
+      termWrap.style.opacity = "0";
+      pageEl.style.opacity   = "1";
+
+      // Cycle through descriptions
+      await swapText("Hello, I am LateAlways!", 2000);
+      await swapText("I am a developer.", 2500);
+      await swapText("I like reverse-engineering software but also making it.", 2500);
+      await swapText("I usually code in Python but I also use other programming languages.", 2500);
+      await swapText("That's all for now.");
+
+      // Load repos in parallel with the last text frame
+      loadRepos();
+
+      await sleep(2000);
+
+      // Show main content
+      mainEl.style.removeProperty("display");
+      animTextEl.hidden = true;
+      termWrap.hidden   = true;
+      animTextEl.style.opacity = "0";
+      pageEl.style.opacity     = "0";
     }
-    document.addEventListener("DOMContentLoaded", () => {
-      var wait
-      var ip
-      fetch("https://api.latealways.dev/getip").then((r) => r.text()).then(data => {
-        ip = data
-        instAnim("<span style=\"color: rgba(50,255,50,255);\">" + ip + "@" + location.hostname + " ~ $</span>", true)
-      });
-      setTimeout(() => {
-        fetch("https://api.latealways.dev/getip").then((r) => r.text()).then(data => {
-          ip = data
-          instAnim("<span style=\"color: rgba(50,255,50,255);\">" + ip + "@" + location.hostname + " ~ $</span> ", true)
-          setTimeout(() => {
-            wait = animate("Hello " + data + "! ")
-            setTimeout(() => {
-              fetch("https://api.latealways.dev/getcountry").then((r) => r.json()).then(data => {
-                instAnim(" <br><span style=\"color: rgba(50,255,50,255);\">" + ip + "@" + location.hostname + " ~ $</span> ", false)
-                wait = animate("Looks like we have someone from " + data["country_name"])
-                setTimeout(() => {
-                  wait = animate(", that's cool!")
-                  setTimeout(() => {
-                    instAnim(" <br> <span style=\"color: rgba(50,255,50,255);\">" + ip + "@" + location.hostname + " ~ $</span> ", false)
-                    setTimeout(() => {
-                      animate("Let me introduce you to my website.", false)
-                      setTimeout(() => {
-                        instAnim(" <br><span style=\"color: rgba(50,255,50,255);\">" + ip + "@" + location.hostname + " ~ $</span> ", false)
-                        animate("./latealways", false)
-                        setTimeout(() => {
-                          instAnim(" <br> ")
-                          setTimeout(() => {
-                            document.getElementById("term").style.setProperty("opacity", "0")
-                            document.getElementById("page").style.setProperty("opacity", "1")
-                            setTimeout(() => {
-                              document.getElementById("animateText").style.setProperty("opacity", "0")
-                              setTimeout(() => {
-                                document.getElementById("animateText").innerHTML = "I am a developer."
-                                document.getElementById("animateText").style.setProperty("opacity", "1")
-                                setTimeout(() => {
-                                  document.getElementById("animateText").style.setProperty("opacity", "0")
-                                  setTimeout(() => {
-                                    document.getElementById("animateText").innerText = "I like reverse-engineering software but also making it."
-                                    document.getElementById("animateText").style.setProperty("opacity", "1")
-                                    setTimeout(() => {
-                                      document.getElementById("animateText").style.setProperty("opacity", "0")
-                                      setTimeout(() => {
-                                        document.getElementById("animateText").innerText = "I usually code in Python but I also use other programming languages.";
-                                        document.getElementById("animateText").style.setProperty("opacity", "1")
-                                        setTimeout(() => {
-                                          document.getElementById("animateText").style.setProperty("opacity", "0")
-                                          setTimeout(() => {
-                                            document.getElementById("animateText").innerHTML = "That's all for now.";
-                                            fetch("https://api.github.com/users/latealways/repos").then(resp => resp.json()).then(data => {
-                                              var example = document.getElementById("template").innerHTML;
-                                              for (let i = 0; i < data.length; i++) {
-                                                let val = data[i];
-                                                var add = example
-                                                console.log(val);
-                                                if (val["disabled"] === true || val["fork"] === true) continue;
-                                                add = add.replaceAll("{repo name}", val["full_name"])
-                                                add = add.replaceAll("{description}", val["description"] || "No description.")
-                                                add = add.replaceAll("{star_count}", val["stargazers_count"])
-                                                add = add.replaceAll("{url}", val["homepage"])
-                                                add = add.replaceAll("{language}", val["language"] || "None")
-                                                document.getElementById("repos").innerHTML += add
-                                              }
-                                            })
-                                            setTimeout(() => {
-                                              document.getElementById("main").style.removeProperty("display")
-                                              document.getElementById("animateText").hidden = true
-                                              document.getElementById("term").hidden = true
-                                              document.getElementById("animateText").style.setProperty("opacity", "0")
-                                              document.getElementById("page").style.setProperty("opacity", "0")
-                                            }, 2000)
-                                          }, 130)
-                                        }, 2500)
-                                      }, 130)
-                                    }, 2500)
-                                  }, 130)
-                                }, 2000)
-                              }, 130)
-                            }, 2000)
-                          }, 2500)
-                        }, getTimeLength("./latealways"))
-                      }, getTimeLength("Let me introduce you to my website.") + 500)
-                    }, 500)
-                  }, wait + 500)
-                }, wait + 750)
-              })
-            }, wait + 750)
-          }, 500)
-        });
-      }, 500)
-    });
+
+    document.addEventListener("DOMContentLoaded", runIntro);
   </script>
 </body>
 
