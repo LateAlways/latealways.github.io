@@ -141,6 +141,22 @@
       50% { opacity: 0.25; transform: scale(0.7); }
     }
 
+    .pfp-wrap {
+      width: 68px; height: 68px;
+      border-radius: 50%;
+      padding: 2px;
+      background: linear-gradient(135deg, var(--accent), transparent);
+      margin-bottom: 28px;
+    }
+
+    .pfp {
+      width: 100%; height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      border: 2px solid var(--bg);
+    }
+
     /* Split outlined/filled title */
     .hero-name {
       font-family: 'Syne', sans-serif;
@@ -362,6 +378,9 @@
 </nav>
 
 <section class="hero">
+  <div class="pfp-wrap">
+    <img src="/pfp.png" alt="LateAlways" class="pfp" />
+  </div>
   <span class="hero-name">
     <span class="outline">LATE</span>
     <span class="solid">ALWAYS<span class="dot">.</span></span>
@@ -370,7 +389,7 @@
     Developer. I reverse-engineer software<br>and build it too. Mostly Python, but I get around.
   </p>
   <div class="pills">
-    <span class="pill"><span class="pill-dot"></span>Discord: LateAlways</span>
+    <a href="https://discord.com/users/705484710679150695" target="_blank" rel="noopener" class="pill"><span class="pill-dot"></span>Discord: LateAlways</a>
     <a href="mailto:contact@latealways.dev" class="pill">
       <span class="pill-dot"></span>contact@latealways.dev
     </a>
